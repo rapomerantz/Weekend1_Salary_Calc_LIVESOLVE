@@ -1,14 +1,15 @@
-I am going to need
+I am going to need:
 
-lay out the HTML
+[xxxx] lay out the HTML including table
 
-5 input fields and a submit button
+[xxxx] 5 input fields and a submit button
 
-Engage event listener to pass the inputs of these fields into jQuery
+Engage event listener to button,
+use Button to pass the inputs of these fields into jQuery
 
 These inputs will need to feed an object Constructor
 
-The object constructor should push to an array
+[xxx] The object constructor should push to an array
 
 I should have a function that loop through the array and pushes each attribute
 of an object to a table
