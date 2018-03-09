@@ -12,6 +12,7 @@
     <div id="container">
       <h2>MockingBird.LLC - Salary Calculator</h2>
       <h3>Please enter your employee information below</h3>
+      <h4 id="errorMessage">(All input fields are required)</h4>
       <!--start INPUTS -->
       <div id="inputsDiv">
         <input type="text" placeholder="First Name" id="firstNameInput">
@@ -24,7 +25,7 @@
       <!--end INPUTS -->
 
       <!--start TABLE-->
-        <table id="targetMe">
+        <table id="tableId">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
@@ -33,29 +34,13 @@
               <th>Annual Salary</th>
               <th>Remove Employee</th>
             </tr>
-            <!-- <tr>
-              <td>Atticus</td>
-              <td>Pomerantz</td>
-              <td>12345</td>
-              <td>Poorly Paid Intern</td>
-              <td>$1,000</td>
-              <td>[button]</td>
-            </tr>
-            <tr>
-              <td>Jesse</td>
-              <td>River</td>
-              <td>67890</td>
-              <td>Better Paid Intern</td>
-              <td>$5,000</td>
-              <td>[button]</td>
-            </tr> -->
         </table>
 
 
       <!-- start GRAND TOTAL -->
-      <div id="grandTotal">
-        <p>Total Monthly Cost:</p>
-        <p>$6,000</p>
+      <div>
+        <p>Total Monthly Payroll Cost:</p>
+        <p id="grandTotal">$0</p>
       </div>
 
     </div>

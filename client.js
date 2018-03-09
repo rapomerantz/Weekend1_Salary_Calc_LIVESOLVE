@@ -15,16 +15,24 @@ class Employee {
   }
 }
 const employeeList = [];
+let salarySum = 0;
 
 // createEmployee ('Atticus', 'Pomerantz', 1234, 'Intern', 5000);
 // createEmployee ('Jesse', 'River', 5678, 'Guitar Tech', 4000);
+
+
+
+
+
+
+
 
 
 $(document).ready(readyNow);
 
 function readyNow () {
   engageEventHandlers ();
-  addToTable();
+  // addToTable();
 
 
 }
@@ -42,37 +50,74 @@ function engageEventHandlers () {
 
 //function performed when #submitButton is clicked
 function submitClicked () {
-  passInfoToConstructor();
+  passToConstructorAndTable();
 }
 
-//function to pass all input field .val()s to createEmployee()
-function passInfoToConstructor () {
-  let inputFirstName = $('#firstNameInput').val();
-  let inputLastName = $('#lastNameInput').val();
-  let inputIdNumber = $('#idNumberInput').val();
-  let inputJobTitle = $('#jobTitleInput').val();
-  let inputAnnualSalary= $('#annualSalaryInput').val();
-  // console.log('First name is:', inputFirstName);
-  // console.log('Last name is:', inputLastName);
-  // console.log('ID Number is:', inputIdNumber);
-  // console.log('Job title is:', inputJobTitle);
-  // console.log('Annual Salary is:', inputAnnualSalary);
-  createEmployee(inputFirstName, inputLastName, inputIdNumber, inputJobTitle, inputAnnualSalary);
-
+//function to pass all input field .val()s to createEmployee() and addToTable ()
+function passToConstructorAndTable () {
+    let inputFirstName = $('#firstNameInput').val();
+    let inputLastName = $('#lastNameInput').val();
+    let inputIdNumber = $('#idNumberInput').val();
+    let inputJobTitle = $('#jobTitleInput').val();
+    let inputAnnualSalary= $('#annualSalaryInput').val();
+    // console.log('First name is:', inputFirstName);
+    // console.log('Last name is:', inputLastName);
+    // console.log('ID Number is:', inputIdNumber);
+    // console.log('Job title is:', inputJobTitle);
+    // console.log('Annual Salary is:', inputAnnualSalary);
+    if (inputFirstName.length > 0 && inputLastName.length > 0 && inputIdNumber.length > 0 && inputJobTitle.length > 0 && inputAnnualSalary.length > 0 ) {
+      createEmployee(inputFirstName, inputLastName, inputIdNumber, inputJobTitle, inputAnnualSalary);
+      addToTable(inputFirstName, inputLastName, inputIdNumber, inputJobTitle, inputAnnualSalary);
+      salaryMath();
+      $('#firstNameInput').val('');
+      $('#lastNameInput').val('');
+      $('#idNumberInput').val('');
+      $('#jobTitleInput').val('');
+      $('#annualSalaryInput').val('');
+      $('#errorMessage').empty();
+      $('#errorMessage').append("(All input fields are required)");
+    }
+    else {
+      $('#errorMessage').empty();
+      $('#errorMessage').append("something's wrong...did you fill in all the input fields?");
+    }
 }
 
-function addToTable () {
-  let tableInput = $('#tableInput');
-  console.log('about to add to table...');
+//accepts inputs from passToConstructorAndTable() and appends them to #tableId
+function addToTable (inputFirstName, inputLastName, inputIdNumber, inputJobTitle, inputAnnualSalary) {
+  console.log(inputFirstName, inputLastName, inputIdNumber, inputJobTitle, inputAnnualSalary);
+  // if (inputFirstName.length > 0 && inputLastName.length > 0 && inputIdNumber.length > 0 && inputJobTitle.length > 0 && inputAnnualSalary.length > 0 ) {
+    $('#tableId').append('<tr><td>'+inputFirstName+'</td><td>'+inputLastName+'</td><td>'+inputIdNumber+'</td><td>'+inputJobTitle+'</td><td>'+inputAnnualSalary+'</td><td>[no button]</td></tr>');
 
+  // }
   // let firstNameData = $('<td class="firstName"></td>');
   // let lastNameData = $('<td class="lastName"></td>');
   // let idNumberData = $('<td class="idNumber"></td>');
   // let jobTitleData = $('<td class="jobTitle"></td>');
   // let annualSalaryData = $('<td class="annualSalary"></td>');
-  $('#targetMe').append('<tr><td>First Name</td><td>Last Name</td><td>Id Number</td><td>Job Title</td><td>Annnual Salary</td><td>[no button]</td></tr>');
 }
 
+//function to empty then increment var salarySum and append it to #grandTotal
+function salaryMath () {
+ for (let eachEmployee of employeeList) {
+   console.log('At salaryMath beginning salarySum is:', salarySum);
+   let increaseSalaryCount = (parseInt(eachEmployee.annualSalary));
+   salarySum +=increaseSalaryCount;
+   console.log("now salarySum is", salarySum);
+   $('#grandTotal').empty();
+   $('#grandTotal').append('$' + salarySum);
+   greaterThanTwentyThousand();
+ }
+}
+
+
+//function to change the color of #grandTotal when it is > 20,000
+function greaterThanTwentyThousand () {
+  if (salarySum >= 20000) {
+    $('#grandTotal').css('background-color', 'red');
+    $('#grandTotal').css('color', 'white');
+  }
+}
 
 
 

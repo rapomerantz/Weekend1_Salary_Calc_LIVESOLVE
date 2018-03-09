@@ -4,10 +4,10 @@ I am going to need:
 
 [xxxx] 5 input fields and a submit button
 
-Engage event listener to button,
-use Button to pass the inputs of these fields into jQuery
+[xx] Engage event listener to button,
+[xxx]use Button to pass the inputs of these fields into jQuery
 
-These inputs will need to feed an object Constructor
+[xxx] These inputs will need to feed an object Constructor
 
 [xxx] The object constructor should push to an array
 
