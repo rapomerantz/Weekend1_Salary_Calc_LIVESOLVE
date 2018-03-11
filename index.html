@@ -3,46 +3,70 @@
   <head>
     <meta charset="utf-8">
     <script src="jquery-3.3.1.js" charset="utf-8"></script>
-    <script src="client.js" charset="utf-8"></script>
+    <script src="clientDuplicate.js" charset="utf-8"></script>
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="row_template.css">
     <title>Atticus - Weekend 1 Salary Calc</title>
   </head>
   <body>
-    <h1>Atticus - Weekend 1 Salary Calc</h1>
     <div id="container">
-      <h2>MockingBird.LLC - Salary Calculator</h2>
-      <h3>Please enter your employee information below</h3>
-      <h4 id="errorMessage">(All input fields are required)</h4>
-      <!--start INPUTS -->
-      <div id="inputsDiv">
-        <input type="text" placeholder="First Name" id="firstNameInput">
-        <input type="text" placeholder="Last Name" id="lastNameInput">
-        <input type="number" placeholder="ID Number" id="idNumberInput">
-        <input type="text" placeholder="Job Title" id="jobTitleInput">
-        <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
-        <button type="button" id="submitButton">Submit</button>
-      </div>
-      <!--end INPUTS -->
 
-      <!--start TABLE-->
-        <table id="tableId">
+      <div class="row">
+        <header>
+          <div class="seven header">
+            <h1>Atticus - Weekend 1 Salary Calc</h1>
+          </div>
+          <div class="five header">
+            <h2>MockingBird.LLC - Salary Calculator</h2>
+          </div>
+        </header>
+      </div> <!--- ROW ENDS HERE -->
+
+      <div class="row">
+        <h3>Please enter your employee information below</h3>
+        <h4 id="errorMessage">(All input fields are required)</h4>
+      </div> <!--- ROW ENDS HERE -->
+
+      <!--start INPUTS -->
+      <div class="row">
+        <table class="five" id="tableId">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
               <th>ID Number</th>
               <th>Job Title</th>
               <th>Annual Salary</th>
+              <th>Monthly Salary</th>
               <th>Remove Employee</th>
             </tr>
+          <div id="tableInsert"></div>
         </table>
-
+          <div id="inputsDiv">
+            <button type="button" class="six" id="submitButton">Submit</button>
+            <input type="text" placeholder="First Name" class="one" id="firstNameInput">
+            <input type="text" placeholder="Last Name" class="one" id="lastNameInput">
+            <input type="number" placeholder="ID Number" class="one" id="idNumberInput">
+            <input type="text" placeholder="Job Title" class="one" id="jobTitleInput">
+            <input type="number" placeholder="Annual Salary" class="one" id="annualSalaryInput">
+          </div>
+      <!--end INPUTS -->
+      </div> <!--- ROW ENDS HERE -->
 
       <!-- start GRAND TOTAL -->
-      <div>
-        <p>Total Monthly Payroll Cost:</p>
-        <p id="grandTotal">$0</p>
-      </div>
-
+      <div class="row">
+        <div>
+          <div class="four">
+            <p></p>
+          </div>
+          <div class="two">
+            <p>Total Monthly Payroll Cost:</p>
+          </div>
+          <div class="six">
+            <p id="grandTotal">$0</p>
+          </div>
+        </div>
+      </div> <!--- ROW ENDS HERE -->
     </div>
 
   </body>
