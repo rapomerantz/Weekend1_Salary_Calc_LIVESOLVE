@@ -12,25 +12,34 @@
   <body>
     <div id="container">
 
-      <div class="row">
+      <div class="row" id="header">
         <header>
-          <div class="seven header">
+          <div class="eight header">
             <h1>Atticus - Weekend 1 Salary Calc</h1>
           </div>
-          <div class="five header">
-            <h2>MockingBird.LLC - Salary Calculator</h2>
+          <div class="four header">
+            <h2>MockingBird.LLC</h2>
           </div>
         </header>
       </div> <!--- ROW ENDS HERE -->
 
       <div class="row">
         <h3>Please enter your employee information below</h3>
-        <h4 id="errorMessage">(All input fields are required)</h4>
       </div> <!--- ROW ENDS HERE -->
 
       <!--start INPUTS -->
       <div class="row">
-        <table class="five" id="tableId">
+        <div class="three" id="inputsDiv">
+          <input type="text" placeholder="First Name" id="firstNameInput">
+          <input type="text" placeholder="Last Name" id="lastNameInput">
+          <input type="number" placeholder="ID Number" id="idNumberInput">
+          <input type="text" placeholder="Job Title"  id="jobTitleInput">
+          <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
+          <button type="button"  id="submitButton">Submit</button>
+        </div>
+        <!-- <p class="two"></p> -->
+      <!--end INPUTS -->
+        <table class="eight" id="tableId">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
@@ -42,27 +51,22 @@
             </tr>
           <div id="tableInsert"></div>
         </table>
-          <div id="inputsDiv">
-            <button type="button" class="six" id="submitButton">Submit</button>
-            <input type="text" placeholder="First Name" class="one" id="firstNameInput">
-            <input type="text" placeholder="Last Name" class="one" id="lastNameInput">
-            <input type="number" placeholder="ID Number" class="one" id="idNumberInput">
-            <input type="text" placeholder="Job Title" class="one" id="jobTitleInput">
-            <input type="number" placeholder="Annual Salary" class="one" id="annualSalaryInput">
-          </div>
-      <!--end INPUTS -->
       </div> <!--- ROW ENDS HERE -->
+
+      <div class="row">
+        <h4 class="ten" id="errorMessage">(All input fields are required)</h4>
+      </div>
 
       <!-- start GRAND TOTAL -->
       <div class="row">
         <div>
-          <div class="four">
+          <div class="seven">
             <p></p>
           </div>
-          <div class="two">
+          <div class="three">
             <p>Total Monthly Payroll Cost:</p>
           </div>
-          <div class="six">
+          <div class="two">
             <p id="grandTotal">$0</p>
           </div>
         </div>
