@@ -32,15 +32,17 @@ function createEmployee (firstName, lastName, idNumber, jobTitle, annualSalary) 
 function engageEventHandlers () {
   $('#submitButton').on('click', submitClicked);
   $('#tableId').on('click', '.removeButton', removeClicked);
-}
 
+}
 
 function removeClicked () {
   let removeButton = $("#removeButton");
-  console.log($(this).parent().parent());
+  // console.log($(this).parent().parent());
   $(this).parent().parent().remove();
+  // let monthlySalaryRemove = ($(this).parent().parent().children().first().next().next().next().next().next().text());
+  // let monthlySalaryRemoveNum = parseInt(monthlySalaryRemove);
+  // return monthlySalaryRemoveNum;
 }
-
 
 //function performed when #submitButton is clicked
 function submitClicked () {
@@ -65,10 +67,12 @@ function passToConstructorAndTable () {
       $('#annualSalaryInput').val('');
       $('#errorMessage').empty();
       $('#errorMessage').append("(All input fields are required)");
+      $('#errorMessage').css('color', 'black');
     }
     else {
       $('#errorMessage').empty();
       $('#errorMessage').append("something's wrong...did you fill in all the input fields?");
+      $('#errorMessage').css('color', 'red');
     }
 }
 
@@ -83,9 +87,8 @@ function addToTable (inputFirstName, inputLastName, inputIdNumber, inputJobTitle
 function salaryMath () {
  for (let eachEmployee of employeeList) {
    // console.log('At salaryMath beginning salarySum is:', salarySum);
-   let increaseSalaryCount = (parseInt(eachEmployee.annualSalary)/12);
+   let increaseSalaryCount = Math.floor((parseInt(eachEmployee.annualSalary)/12));
    salarySum += increaseSalaryCount;
-   salarySum.toFixed(2);
    // console.log("now salarySum is", salarySum);
    $('#grandTotal').empty();
    $('#grandTotal').append('$' + salarySum);
@@ -96,8 +99,7 @@ function salaryMath () {
 //function to change the color of #grandTotal when it is > 20,000
 function greaterThanTwentyThousand () {
   if (salarySum >= 20000) {
-    $('#grandTotal').css('background-color', 'red');
-    $('#grandTotal').css('color', 'white');
+    $('#grandTotal').css('color', 'red');
   }
 }
 

@@ -15,7 +15,7 @@ table, th, td {
 }
 
 td {
-  background-color: Azure;
+  background-color: #f1f3f4;
 
 }
 
@@ -25,7 +25,6 @@ td {
 
 }
 
-
 input {
   width: 30%;
 }
@@ -34,7 +33,7 @@ input {
   width: 91%;
   padding: 10px;
   margin: 3px;
-  background-color: Azure;
+  background-color: #f1f3f4;
   border-radius: 5px;
   border: 1px double slategrey;
 
@@ -44,14 +43,14 @@ input {
   width: 100%;
   padding: 10px;
   margin: 3px;
-  background-color: Azure;
+  background-color: #f1f3f4;
   border-radius: 5px;
   border: 1px solid slategrey;
   text-align: left;
 
 }
 
-#grandTotal {
-  
-
+#errorMessage {
+  font-size: 15px;
+  margin-left: 1%;
 }
