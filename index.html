@@ -2,75 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Salary Calculator LIVE SOLVE</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="jquery-3.3.1.js" charset="utf-8"></script>
     <script src="client.js" charset="utf-8"></script>
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="row_template.css">
-    <title>Atticus - Weekend 1 Salary Calc</title>
   </head>
   <body>
-    <div id="container">
+    <h1>Salary Calculator LIVE SOLVE</h1>
 
-      <div class="row" id="header">
-        <header>
-          <div class="eight header">
-            <h1>Atticus - Weekend 1 Salary Calc</h1>
-          </div>
-          <div class="four header">
-            <h2>MockingBird.LLC</h2>
-          </div>
-        </header>
-      </div> <!--- ROW ENDS HERE -->
+    <span>First Name:</span>
+    <input type="text" placeholder="First Name" id="firstName" value="Andy">
+    <br/>
+    <span>Last Name:</span>
+    <input type="text" placeholder="Last Name" id="lastName" value="Smith">
+    <br/>
+    <span>Employee ID:</span>
+    <input type="text" placeholder="Employee ID" id="employeeId" value="1234">
+    <br/>
+    <span>Title:</span>
+    <input type="text" placeholder="Title" id="title" value="Intern">
+    <br/>
+    <span>Salary:</span>
+    <input type="number" placeholder="salary" id="salary" value="12000">
+    <br/>
+    <button type="button" id="submitButton">Submit</button>
 
-      <div class="row">
-        <h3>Please enter your employee information below</h3>
-      </div> <!--- ROW ENDS HERE -->
+    <div id="employees">
 
-      <!--start INPUTS -->
-      <div class="row">
-        <div class="three" id="inputsDiv">
-          <input type="text" placeholder="First Name" id="firstNameInput">
-          <input type="text" placeholder="Last Name" id="lastNameInput">
-          <input type="number" placeholder="ID Number" id="idNumberInput">
-          <input type="text" placeholder="Job Title"  id="jobTitleInput">
-          <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
-          <button type="button"  id="submitButton">Submit</button>
-        </div>
-        <!-- <p class="two"></p> -->
-      <!--end INPUTS -->
-        <table class="eight" id="tableId">
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>ID Number</th>
-              <th>Job Title</th>
-              <th>Annual Salary</th>
-              <th>Monthly Salary</th>
-              <th>Remove Employee</th>
-            </tr>
-          <div id="tableInsert"></div>
-        </table>
-      </div> <!--- ROW ENDS HERE -->
+    </div>
 
-      <div class="row">
-        <h4 class="three" id="errorMessage">(All input fields are required)</h4>
-      </div>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Salary</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="tableContent">
+        <!-- blank - jq will append here -->
+      </tbody>
+    </table>
 
-      <!-- start GRAND TOTAL -->
-      <div class="row">
-        <div>
-          <div class="seven">
-            <p></p>
-          </div>
-          <div class="three">
-            <p>Total Monthly Payroll Cost:</p>
-          </div>
-          <div class="two">
-            <p id="grandTotal">$0</p>
-          </div>
-        </div>
-      </div> <!--- ROW ENDS HERE -->
+    <div>
+      <span id="monthlyCost"></span>
     </div>
 
   </body>
